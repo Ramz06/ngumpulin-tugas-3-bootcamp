@@ -1,14 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background-color: #f4f4f4;
-}
-
 article {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -18,35 +7,6 @@ article {
     align-items: center;
     min-height: 100vh;
     text-align: center;
-}
-
-nav {
-    background-color: rgba(128, 128, 128,0.3);
-    margin-top: 0;
-    width: 100%;
-    padding: 10px;
-}
-
-nav ul{
-    display: flex;
-    justify-content: flex-start;
-    height: 2em;
-    gap: 2rem;
-    text-align: center;
-}
-
-nav ul li {
-    list-style-type: none;
-    font-size: 1.4rem;
-}
-
-nav ul li img {
-    height: 100%;
-    width: 100%;
-}
-
-nav ul li:nth-child(even) {
-    color: rgb(255, 60, 0);
 }
 
 h1 {
