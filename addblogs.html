@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myblogs</title>
+    <link rel="stylesheet" href="assets/css/general/style.css">
+    <link rel="stylesheet" href="assets/css/pages/blogs.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <img src="assets/img/logo.png" alt="" srcset="">
+            </li>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="blogs.html">Blog</a>
+            </li>
+            <li>
+                <button><a href="contact.html">Contact Me</a></button>
+            </li>
+        </ul>
+    </nav>
+    <section>
+        <form id="blogForm">
+            <label for="projectName">Project name
+            <input type="text" name="projectName" id="projectName"></label>
+            <div class="date">
+                <label for="startDate">Start Date
+                <input type="datetime-local" name="startDate" id="startDate"></label>
+                <label for="endDate">End Date
+                <input type="datetime-local" name="endDate" id="endDate"></label>
+            </div>
+            <label for="description">Description
+                <textarea type="" name="description" id="description"></textarea>
+            </label> 
+            <div class="option">
+                <p>Technologies</p>
+                <label>
+                    <input type="checkbox" name="skills" value="nodejs"> NodeJS
+                </label>
+                <label>
+                    <input type="checkbox" name="skills" value="reactjs"> ReactJS
+                </label>
+                <label>
+                    <input type="checkbox" name="skills" value="html"> HTML
+                </label>
+                <label>
+                    <input type="checkbox" name="skills" value="css"> CSS
+                </label>
+            </div>
+            <label for="uploadImage" class="file-upload-label">
+                <div class="file-input-wrapper">
+                    <input type="file" name="uploadImage" id="uploadImage">
+                    <img src="assets/img/icons/file.png" alt="Upload Icon" class="file-icon">
+                </div>
+            </label>
+            <button type="submit">Add</button>
+        </form>
+    </section>
+
+    <script type="module" src="assets/js/blogs.js"></script>
+</body>
+</html>
