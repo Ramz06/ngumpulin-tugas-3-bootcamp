@@ -55,6 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // Panggil renderBlogs untuk memperbarui tampilan
                     renderBlogs();
+
+                    // Redirect ke blogs.html setelah blog berhasil ditambahkan
+                    window.location.href = "blogs.html";
                 };
 
                 // Membaca file sebagai URL data

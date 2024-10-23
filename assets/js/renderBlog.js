@@ -6,7 +6,7 @@ export default function renderBlogs() {
     // Kosongkan konten sebelumnya jika ingin merender ulang
     blogContainer.innerHTML = ""; 
 
-    blogs.forEach(blog => {
+    blogs.forEach((blog, index) => {
         let html = "";
 
         html += `
@@ -24,13 +24,24 @@ export default function renderBlogs() {
             <div class="img-content">
                 <img src="${blog.image}" alt="${blog.title}"> <!-- Menggunakan URL gambar dari objek blog -->
                 <div class="action">
-                    <button>edit</button>
-                    <button>delete</button>
+                    <button class="delete-btn" data-index="${index}">delete</button>
+                    <button class="edit-btn" data-index="${index}">edit</button>
                 </div>
             </div>
         </article>`;
 
         // Tambahkan HTML yang sudah dibuat ke dalam elemen container
         blogContainer.innerHTML += html;
+    });
+
+    // Tambahkan event listener untuk tombol delete
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const index = e.target.getAttribute('data-index'); // Ambil index blog yang akan dihapus
+            blogs.splice(index, 1); // Hapus blog dari array
+            localStorage.setItem('blogs', JSON.stringify(blogs)); // Perbarui localStorage
+            renderBlogs(); // Render ulang daftar blog
+        });
     });
 }

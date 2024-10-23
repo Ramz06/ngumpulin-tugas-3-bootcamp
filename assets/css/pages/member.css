@@ -1,0 +1,73 @@
+h1 {
+    text-align: center;
+    font-size: 3em;
+    margin: 30px;
+}
+
+section {
+    display: flex;
+    height: 70vh;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.product-card {
+    width: 400px;
+    background-color: #fff; /* Background putih */
+    border-radius: 15px; /* Border radius untuk ujung yang melengkung */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.45); /* Bayangan ringan */
+    border: 0.75px solid black;
+    overflow: hidden;
+    margin: 20px;
+    text-align: left; /* Mengatur text di dalam card */
+    transition: transform 0.3s ease;
+    position: relative; /* Untuk mempermudah positioning elemen di dalamnya */
+}
+
+.product-card:hover {
+    transform: translateY(-10px); /* Sedikit efek hover mengangkat card */
+    border: 2.5px solid black;
+}
+
+.product-image {
+    width: 100%;
+    height: 63%;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px; /* Agar gambar mengikuti border-radius card */
+}
+
+.product-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    position: relative;
+}
+
+/* Nama Barang di pojok kanan atas */
+.product-name {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Harga di pojok kiri pada baris kedua */
+.product-price {
+    font-size: 1.5rem;
+    color: #000;
+    font-weight: bold;
+    margin-top: 40px; /* Untuk memberi jarak dari nama */
+    margin-left: auto;
+}
+
+/* Bintang di baris ketiga di pojok kiri */
+.product-rating {
+    font-size: 1.7rem;
+    margin-top: 10px;
+    margin-left: auto;
+}
+
+.product-rating span {
+    color: #ffcc00;
+}
