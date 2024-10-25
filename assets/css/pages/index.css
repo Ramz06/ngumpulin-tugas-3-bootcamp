@@ -1,76 +1,74 @@
-article {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-
-}
-
-section {
-    flex-wrap: wrap;
-}
-
-h1 {
-    margin: 0 0 20px;
-    color: #333;
-    font-size: 2em;
-}
-
-p {
-    text-align: justify;
-    color: #555;
-    max-width: 600px;
-    margin-bottom: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: rgba(0,0,0,0.75);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
+.navbar-brand img {
+  width: 40%;
 }
 
 .card {
-    margin-top: 30px;
-    width: 350px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  width: 100%; /* Pastikan card mengisi lebar container */
 }
+
 .card img {
-    max-height: 400px;
-    width: 100%;
-    object-fit: cover;
-    object-position: top;
-    height: auto;
-    border-radius: 5px;
+  height: 40vh; /* Biarkan tinggi gambar otomatis */
+  width: 100%; /* Gambar memenuhi lebar card */
+  object-fit: cover; /* Memastikan gambar terpotong dengan baik */
 }
 
-.social-icons {
-    margin-bottom: 20px;
+.article-container {
+  display: flex;
+  overflow-x: auto; /* Menambahkan scroll horizontal jika diperlukan */
+  width: 100%; /* Memastikan article memiliki lebar 100% */
 }
 
-.social-icons a {
-    margin-right: 15px;
-    font-size: 30px;
-    color: #333;
-    text-decoration: none;
+.article-section {
+  min-width: 300px; /* Atur lebar minimum untuk setiap section */
 }
 
-.social-icons a:hover {
-    color: #007BFF;
+.lead {
+  font-size: 1.25rem; /* Ukuran font default untuk p.lead */
 }
 
-/* media query */
+@media (max-width: 760px) {
+  /* Tablet dan hp */
+  .article-container {
+    margin: 10px 2px;
+    padding: 0;
+  }
 
-@media screen and (max-width: 720px) {
-    section {
-        width: 80%;
-    }
+  .lead {
+    font-size: 0.9rem; /* Kecilkan ukuran font */
+  }
+
+  .article-section {
+    margin: 5px 2px; /* Kecilkan margin section */
+    padding: 0;
+    min-width: 200px;
+  }
+
+  .card {
+    max-width: 200px; /* Batasi lebar maksimal card */
+    width: 100%; /* Pastikan card memenuhi lebar kontainer */
+  }
+
+  .card img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 485px) {
+  /* Aturan untuk lebar layar di bawah 485px */
+  .article-container {
+    flex-direction: column; /* Ubah arah flex menjadi kolom */
+    align-items: center; /* Pusatkan item dalam kolom */
+  }
+
+  .article-section {
+    width: 80%;
+  }
+}
+
+/* Menambahkan styling untuk memusatkan card */
+.center-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Pastikan untuk memenuhi tinggi section */
 }

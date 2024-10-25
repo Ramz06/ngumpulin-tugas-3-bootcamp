@@ -78,7 +78,7 @@ nav ul li button a {
         top: 60px; /* Adjust based on your nav height */
         left: 0;
         width: 100%;
-        height: 50%;
+        height: 100%;
         background-color: rgba(255, 255, 255, 0.9);
         padding: 0;
         gap: 0;
@@ -91,11 +91,15 @@ nav ul li button a {
     nav ul li {
         width: 100%;
         height: 100%;
-        border: 5px solid black;
         margin: 0;
     }
 
-    nav ul li:first-child {
+    nav ul li img {
         display: none;
+    }
+
+    nav ul li button {
+        margin-top: 10px;
+        font-size: 1rem;
     }
 }

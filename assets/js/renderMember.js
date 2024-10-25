@@ -1,58 +1,77 @@
-class Member {
-    constructor(memberDetail) {
-        this.name = memberDetail.name;
-        this.qoutes = memberDetail.qoutes;
-        this.star = memberDetail.star;
-        this.image = memberDetail.image;
-    }
+// Fungsi untuk mengambil data members dari URL menggunakan Fetch API dengan async/await
+async function getMembers(url) {
+  try {
+      const response = await fetch(url); // Tunggu respons dari fetch
+      if (!response.ok) {
+          throw new Error('Members not found'); // Lempar error jika respons bukan 200
+      }
+      const members = await response.json(); // Parse JSON jika respons berhasil
+      return members;
+  } catch (error) {
+      console.error(error.message); // Menampilkan error jika ada masalah
+  }
 }
 
-const members = [
-    {
-        name: "Vindev",
-        qoutes: "Keren abis...",
-        star: 4,
-        image: "https://images.unsplash.com/photo-1557862921-37829c790f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
-    }, 
-    {
-        name: "Sunjaya",
-        qoutes: "Kerja Bagus",
-        star: 5,
-        image: "https://plus.unsplash.com/premium_photo-1669065123832-5c43e8f80f46?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
-    }, 
-    {
-        name: "Klovaska",
-        qoutes: "Lumayan Baik",
-        star: 3,
-        image: "https://images.unsplash.com/photo-1583341612074-ccea5cd64f6a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
-    }
-].map(memberDetail => {return new Member(memberDetail)} );
+// Mengambil data members dan merender mereka
+async function init() {
+  const members = await getMembers('/assets/js/data/member.json');
+  
+  if (members) {
+      // Render semua members pada awal
+      renderMembers(members, memberContainer);
 
+      // Menambahkan filter berdasarkan rating
+      addRatingFilter(members, starButtons, memberContainer);
+  }
+}
 
+// Fungsi untuk merender members ke dalam HTML
+function renderMembers(membersArray, memberContainer) {
+  let html = "";
+  membersArray.forEach((member) => {
+      html += `
+          <div class="card m-2" style="width: 18rem;">
+              <img
+                  src="${member.image}"
+                  alt="Product Image"
+                  class="card-img-top"
+              />
+              <div class="card-body">
+                  <h5 class="card-title">"${member.feedback}"</h5>
+                  <p class="card-text">- ${member.name}</p>
+                  <p class="card-text">
+                      <strong>Rating:</strong> ${member.star} <span class="star">★</span>
+                  </p>
+              </div>
+          </div>`;
+  });
+  memberContainer.innerHTML = html;
+}
 
-const memberContainer = document.querySelector('section');
-const starButton = document.querySelectorAll('.star-button');
-let html = ``;
+// Fungsi untuk menambahkan event listener pada tombol rating
+function addRatingFilter(members, starButtons, memberContainer) {
+  starButtons.forEach((starButton) => {
+      starButton.addEventListener("click", (e) => {
+          const value = e.target.value;
 
-members.forEach((member) => {
-    
-    html += `
-    <div class="product-card">
-    <img src=${member.image} alt="Product Image" class="product-image">
-    <div class="product-info">
-    <h2 class="product-name">"${member.qoutes}"</h2>
-    <p class="product-price">-${member.name}</p>
-    <div class="product-rating">
-    ${member.star} <span class="star">★</span>
-    </div>
-    </div>
-        </div>`;
+          // Jika tombol "all" atau value bukan angka, tampilkan semua member
+          if (value === "all" || isNaN(parseInt(value))) {
+              renderMembers(members, memberContainer);
+          } else {
+              // Jika value angka, filter dan tampilkan member dengan bintang tertentu
+              const selectedStar = parseInt(value); // Konversi value ke angka
+              const staredMembers = members.filter(
+                  (member) => member.star === selectedStar
+              );
+              renderMembers(staredMembers, memberContainer);
+          }
+      });
+  });
+}
 
-        memberContainer.innerHTML = html;
-})
+// Inisialisasi elemen HTML
+const memberContainer = document.querySelector("section");
+const starButtons = document.querySelectorAll(".star-button");
 
-starButton.forEach((starButton) => {
-    starButton.addEventListener('click', (e) => {
-        console.log(e.target.innerHTML);
-    })
-})
+// Inisialisasi aplikasi
+init();

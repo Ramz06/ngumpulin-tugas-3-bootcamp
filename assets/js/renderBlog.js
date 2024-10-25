@@ -1,10 +1,13 @@
 import { blogs } from "./blogs.js";
 
+console.log("hii");
+
+console.log(blogs)
 export default function renderBlogs() {
     const blogContainer = document.getElementById('blog-container'); // Elemen tujuan tempat artikel akan ditambahkan
 
     // Kosongkan konten sebelumnya jika ingin merender ulang
-    blogContainer.innerHTML = ""; 
+    blogContainer.innerHTML = "";
 
     blogs.forEach((blog, index) => {
         let html = "";
@@ -34,6 +37,7 @@ export default function renderBlogs() {
         blogContainer.innerHTML += html;
     });
 
+    
     // Tambahkan event listener untuk tombol delete
     const deleteButtons = document.querySelectorAll('.delete-btn');
     deleteButtons.forEach(button => {
@@ -45,3 +49,5 @@ export default function renderBlogs() {
         });
     });
 }
+
+renderBlogs();

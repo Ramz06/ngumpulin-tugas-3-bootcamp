@@ -1,53 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tempat Wisata - Pantai Kuta</title>
-    <link rel="stylesheet" href="assets/css/general/style.css">
-    <link rel="stylesheet" href="assets/css/pages/index.css">
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-</head>
-<body>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/pages/index.css">
     
-    <nav>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="assets/img/logo.png"
+            alt="Logo"
+            width="30"
+            height="30"
+            class="d-inline-block align-top"
+          />
+          Tempat Wisata
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blogs.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-primary text-white" href="contact.html"
+                >Contact Me</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
-    <article>
-    <section>
-        <h1>Welcome To My Blog</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eum explicabo voluptatem ut, veniam nisi tenetur dolorum qui perspiciatis quibusdam minima, inventore corporis? Molestias soluta commodi voluptatum quas ab voluptates.
-        Tenetur impedit iusto voluptate in ipsum a atque aspernatur, fugit ad. Neque quas iure doloribus officiis minus cupiditate debitis accusamus consequuntur amet praesentium, asperiores, nostrum dolores sapiente nesciunt blanditiis. Ullam!
-        Reiciendis animi aut, illum tempore perspiciatis adipisci nostrum! Doloremque quaerat amet optio veniam blanditiis, consectetur at quis? Sequi provident saepe quas doloremque tenetur! Ullam perspiciatis ad sed, facere laboriosam neque?</p>
-        <div class="social-icons">
-            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
-                <i class="fab fa-twitter"></i>
-            </a>
-        </div>
-        <button>Reservasi Tempat</button>
-    </section>
 
-
-    <div class="card">
-        <img src="assets/img/profile.jpeg" alt="Pantai Kuta">
-        <div class="title">
-            <h1>Rambayu Rimbajati</h1>
-            <!-- <p>Author</p> -->
+    <!-- Article Section in One Row -->
+    <article class="container my-5 article-container mx-auto">
+      <!-- Text Section -->
+      <section class="article-section text-center text-lg-start">
+        <h1 class="mb-4">Welcome To My Hut</h1>
+        <p class="lead">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eum
+          explicabo voluptatem ut, veniam nisi tenetur dolorum qui perspiciatis
+          quibusdam minima, inventore corporis? Molestias soluta commodi
+          voluptatum quas ab voluptates. Tenetur impedit iusto voluptate in
+          ipsum a atque aspernatur, fugit ad.
+        </p>
+        <div
+          class="d-flex justify-content-center justify-content-lg-start my-4"
+        >
+          <a
+            href="https://www.instagram.com"
+            target="_blank"
+            aria-label="Instagram"
+            class="text-dark mx-2"
+          >
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com"
+            target="_blank"
+            aria-label="LinkedIn"
+            class="text-dark mx-2"
+          >
+            <i class="fab fa-linkedin fa-2x"></i>
+          </a>
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            aria-label="Facebook"
+            class="text-dark mx-2"
+          >
+            <i class="fab fa-facebook fa-2x"></i>
+          </a>
+          <a
+            href="https://www.twitter.com"
+            target="_blank"
+            aria-label="Twitter"
+            class="text-dark mx-2"
+          >
+            <i class="fab fa-twitter fa-2x"></i>
+          </a>
         </div>
-    </div>
+        <button class="btn btn-primary">Reservasi Tempat</button>
+      </section>
+
+      <!-- Profile Card Section -->
+      <div class="article-section p-3 center-card">
+        <div class="card mx-0">
+          <img
+            src="assets/img/profile.jpeg"
+            class="card-img-top"
+            alt="Pantai Kuta"
+          />
+          <div class="card-body text-center">
+            <h5 class="card-title">Rambayu Rimbajati</h5>
+            <p class="card-text">Author</p>
+          </div>
+        </div>
+      </div>
     </article>
 
-
-    <script src="assets/js/styling/navbar.js"></script>
-</body>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
