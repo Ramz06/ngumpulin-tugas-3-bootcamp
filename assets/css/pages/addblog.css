@@ -70,21 +70,53 @@ article {
 }
 
 /* Icon styling */
-.icons {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.icons i, .icons .material-icons {
-    font-size: 2rem;
+.icon {
     color: #333;
-}
+    margin: 10px;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
 
-.icons i:hover, .icons .material-icons:hover {
-    color: #000;
-}
+  /* Hover effect to revert to original color */
+  .icon:hover {
+    color: initial;
+  }
 
+  /* Specific colors on hover for each icon */
+  .icon-node:hover {
+    /* background: -webkit-linear-gradient(rgba(35, 218, 114, 1) 35%, #333); */
+    background: -webkit-linear-gradient(
+      rgb(112, 243, 175) 0%,
+      rgba(35, 218, 114, 1) 35%,
+      rgba(138, 255, 0, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  } /* Node.js */
+  .icon-react:hover {
+    background: -webkit-linear-gradient(
+        rgba(50,247,255,1) 0%, rgba(101,8,240,1) 35%, rgba(60,114,246,1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  } /* React */
+  .icon-html:hover {
+    background: -webkit-linear-gradient(
+        rgb(255, 0, 0) 0%, rgba(255,205,0,1) 50%, rgb(228, 1, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  } /* HTML */
+  .icon-css:hover {
+    background: -webkit-linear-gradient(
+        rgba(50,82,255,1) 0%, rgba(8,168,240,1) 35%, rgba(112,100,252,1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  } /* CSS */
 /* Button styling */
 .action {
     display: flex;

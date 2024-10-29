@@ -1,8 +1,7 @@
 import { blogs } from "./blogs.js";
 
-console.log("hii");
+console.log(blogs);
 
-console.log(blogs)
 export default function renderBlogs() {
     const blogContainer = document.getElementById('blog-container'); // Elemen tujuan tempat artikel akan ditambahkan
 
@@ -19,9 +18,6 @@ export default function renderBlogs() {
                 <p>Durasi ${blog.duration}</p>
                 <p>${blog.content}</p>
                 <div class="icons">
-                    <i class="fab fa-google-play" title="Play Store"></i> <!-- Play Store Icon -->
-                    <span class="material-icons" title="Android">android</span> <!-- Full body Android Icon -->
-                    <i class="fab fa-java" title="Java"></i> <!-- Java Icon -->
                 </div>
             </div>
             <div class="img-content">
@@ -35,9 +31,12 @@ export default function renderBlogs() {
 
         // Tambahkan HTML yang sudah dibuat ke dalam elemen container
         blogContainer.innerHTML += html;
+        setTimeout(() => {
+            renderIcons(blog);
+        }, 500)
+        
     });
 
-    
     // Tambahkan event listener untuk tombol delete
     const deleteButtons = document.querySelectorAll('.delete-btn');
     deleteButtons.forEach(button => {
@@ -48,6 +47,20 @@ export default function renderBlogs() {
             renderBlogs(); // Render ulang daftar blog
         });
     });
+}
+
+function renderIcons(blog) {
+    let html = ``;
+    let iconContainer = document.querySelector(".icons");
+    blog.skills.forEach(skill => {
+        html += `
+            <i class="${skill.class}"></i>
+        ` 
+
+        console.log(html)
+
+    })
+    iconContainer.innerHTML = html;
 }
 
 renderBlogs();
